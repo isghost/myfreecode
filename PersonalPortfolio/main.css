@@ -1,3 +1,17 @@
 body{
 	background: #DDD
 }
+
+.headimg{
+	/*background-image: url(http://img5q.duitang.com/uploads/item/201408/19/20140819204753_Rxe5Z.png);*/
+	background-size: cover;
+	background-color: #2A3440;
+	height: 300px;
+}
+
+.title{
+	color: #FFF;
+	font-family: SimSun;
+	margin-top: 0px;
+	padding-top: 120px;
+}
