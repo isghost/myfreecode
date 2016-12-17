@@ -20,3 +20,73 @@ body{
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 }
+
+.social{
+	width: 700px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.social > ul{
+	list-style: none;
+	display: block;
+	overflow: hidden; height: auto; 
+}
+
+.social li{
+	list-style: none;
+	float: left;
+	margin-left: 30px;
+	margin-bottom: 10px;
+}
+
+.btn-gray{
+	background-color:#AAA;
+	color: #FFF;
+}
+
+.btn:hover{
+	font-size: 20px;
+/*	border-color: #555;
+	border-radius: 5px;
+	border-bottom-width: 5px;*/
+	box-shadow: 5px 5px 5px #333;
+}
+
+.desc{
+	width: 60%;
+	float:left;
+}
+
+.selfimg{
+	width: 40%;
+	float:left;
+	margin: auto;
+}
+
+.selfimg > img{
+	border-radius: 50%;
+	margin-top: 50px;
+}
+
+.portfolio .item{
+	margin-top: 50px;
+	list-style: none;
+	float: left;
+	width: 23%;
+	margin: 5%;
+	height: 170px;
+	background-color: #777;
+	border-radius: 10px;
+	background-image: url(images/anything.jpg);
+	background-size: 100%;
+}
+
+.portfolio .item:hover{
+	box-shadow: 5px 5px 5px #333;
+}
+
+.projDesc{
+	margin-top: 50%;
+	margin-bottom: 0px;
+}

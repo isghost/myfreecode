@@ -1,3 +1,5 @@
 $(document).ready(function(){
-	$(".test").text("<div></div>Hello World");
+	$(".portfolio .item").map(function(count){
+		$(this).css("background-image", "url(images/cover"+(count + 1)+ ".jpg)");
+	});
 });
