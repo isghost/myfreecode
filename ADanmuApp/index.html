@@ -2,10 +2,27 @@
 <head>
 	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
 	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src ="https://cdn.wilddog.com/sdk/js/2.3.9/wilddog.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-	
+	<div class="container">
+		<div class="damu">
+		</div>
+		<div class="inputText">
+			<input type="text" name="" placeholder="input the message" id="inputTxt" class="center-block form-control">
+		</div>
+		<div class="send">
+			<div class="conButton">
+				<button id="sendMsg" class="btn btn-primary">发送消息</button>
+				<button id="clearDanmu" class="btn btn-info">清理弹幕</button>
+			</div>
+		</div>
+		<dir style="clear: both;"></dir>
+<!-- 		<p>
+			这是一个即时弹幕显示功能(非例子中的随机显示)，一开始会显示已经保存的所有弹幕。发送弹幕，所有客户端都会显示这条新消息。
+		</p> -->
+	</div>
 </body>
 </html>

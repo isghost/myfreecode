@@ -1,0 +1,31 @@
+.damu{
+	height: 600px;
+	background-color: #AAA;
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+.damu p{
+	position: fixed;
+	margin-left: 50px;
+	margin-top: 100px;
+	font-size: 35px;
+}
+
+.inputText{
+	margin: 20px;
+}
+
+.conButton{
+	margin:0px auto;
+	width: 300px;
+}
+
+#sendMsg{
+	float: left;
+}
+
+#clearDanmu{
+	float: right;
+}
+
