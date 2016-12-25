@@ -1,3 +1,35 @@
 body{
-	background: #DDD
+}
+
+.contain{
+	margin: 100px auto auto;
+	width: 500px;
+	border-radius: 10px;
+	padding: 20px;
+	font-size: 30px;
+	background: #FFF;
+}
+
+.author{
+	text-align: right;
+}
+
+.newQuote{
+	float: right;
+	font-size: 25px
+}
+
+.myBtn{
+	border-radius: 10px;
+	background: #16a085;
+	color: #FFF;
+}
+
+.myBtn:active{
+	color: #FFF;
+}
+
+.creator{
+	text-align: center;
+	color: #FFF;
 }
