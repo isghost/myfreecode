@@ -8,7 +8,7 @@ router.use(function timeLog(req, res, next) {
 });
 router.get('/', function(req, res) {
   var randomIdx = Math.floor(Math.random() * quotes.length);
-  res.json({quote:quotes[randomIdx]})
+  res.send("callback(" + JSON.stringify({quote:quotes[randomIdx]}) + ")");
 });
 
 
