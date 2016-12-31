@@ -26,9 +26,13 @@ router.get('/', function(req, res) {
 	cipher.update(preStr);
 	var signBase64 = cipher.digest().toString("base64");
 	var signUrlEncode = querystring.escape(signBase64);
+	var ip = req.ip
+	if (ip.substr(0, 7) == "::ffff:") {
+	  ip = ip.substr(7)
+	}
 	superagent.get("https://api.thinkpage.cn/v3/weather/now.json")
 		// .query("location=" + longi + ":" + lati)
-		.query("location=" + req.ip)
+		.query("location=" + ip)
 		.query(preStr)
 		.query("sig=" + signUrlEncode)
 		.end(function(err, weatherRes){
