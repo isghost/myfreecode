@@ -3,7 +3,7 @@ var router = express.Router();
 
 // 该路由使用的中间件
 router.use(function timeLog(req, res, next) {
-  console.log('Time: ', new Date().toLocaleString());
+  console.log('random quote router Time: ', new Date().toLocaleString());
   next();
 });
 router.get('/', function(req, res) {

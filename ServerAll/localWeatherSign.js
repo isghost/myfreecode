@@ -13,7 +13,7 @@ var router = express.Router();
 
 // 该路由使用的中间件
 router.use(function timeLog(req, res, next) {
-  console.log('Time: ', new Date().toLocaleString());
+  console.log('local weather Time: ', new Date().toLocaleString());
   next();
 });
 router.get('/', function(req, res) {
@@ -25,7 +25,6 @@ router.get('/', function(req, res) {
 	var cipher = crypto.createHmac("sha1", apiKey);
 	cipher.update(preStr);
 	var signBase64 = cipher.digest().toString("base64");
-	console.log(signBase64);
 	var signUrlEncode = querystring.escape(signBase64);
 	superagent.get("https://api.thinkpage.cn/v3/weather/now.json")
 		.query("location=" + longi + ":" + lati)
