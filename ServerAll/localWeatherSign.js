@@ -13,12 +13,12 @@ var router = express.Router();
 
 // 该路由使用的中间件
 router.use(function timeLog(req, res, next) {
-  console.log('local weather Time: ', new Date().toLocaleString());
+  console.log('local weather Time: ', new Date().toLocaleString(), req.ip);
   next();
 });
 router.get('/', function(req, res) {
-	var longi = req.query.longi;
-	var lati = req.query.lati;
+	// var longi = req.query.longi;
+	// var lati = req.query.lati;
 	var ts = Date.now();
 	var uid = "U4CA9F19FE";
 	var preStr = "ts=" + ts + "&uid=" + uid;
@@ -27,7 +27,8 @@ router.get('/', function(req, res) {
 	var signBase64 = cipher.digest().toString("base64");
 	var signUrlEncode = querystring.escape(signBase64);
 	superagent.get("https://api.thinkpage.cn/v3/weather/now.json")
-		.query("location=" + longi + ":" + lati)
+		// .query("location=" + longi + ":" + lati)
+		.query("location=" + req.ip)
 		.query(preStr)
 		.query("sig=" + signUrlEncode)
 		.end(function(err, weatherRes){
