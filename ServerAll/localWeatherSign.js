@@ -32,7 +32,7 @@ router.get('/', function(req, res) {
 		.query(preStr)
 		.query("sig=" + signUrlEncode)
 		.end(function(err, weatherRes){
-			res.send(JSON.stringify(weatherRes.body));
+			res.send("callback(" +JSON.stringify(weatherRes.body.results[0]) + ")");
 		});
 });
 
