@@ -1,4 +1,5 @@
-
+//https://api.twitch.tv/kraken/channels/bobross?client_id=fjzhteomj28jkr8sghbnl9d8jjv5wd
+//https://api.twitch.tv/kraken/streams/bobross?client_id=fjzhteomj28jkr8sghbnl9d8jjv5wd
 function setTemp(){
 
 	$.ajax({
