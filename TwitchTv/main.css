@@ -1,0 +1,44 @@
+body{
+	background-color: #DFD;
+}
+.container{
+	width: 500px;
+	margin-top: 100px;
+}
+
+.menu{
+	width: 100%;
+	overflow: hidden;
+}
+
+.menu > *{
+	float: left;
+	background-color: orange;
+	width: 33.3%;
+	text-align: center;
+	padding: 20px;
+}
+
+.item{
+	overflow: hidden;
+	height: 50px;
+}
+.item > img{
+	float: left;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.item > span{
+	display: block;
+	top: 50%;
+	left: 50%;
+	position: relative;
+	float: left;
+
+}
+
+.item > i{
+	float: right;
+}
