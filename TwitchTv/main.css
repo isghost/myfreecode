@@ -19,13 +19,21 @@ body{
 	padding: 20px;
 }
 
+.menu > div:hover{
+	background-color: #d2921f;
+}
+
 .item{
 	overflow: hidden;
-	height: 50px;
+	height: 70px;
+	background-color: #d8ef01;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	display: none;
+	padding: 10px;
 }
 .item > img{
 	float: left;
-	width: 50px;
 	height: 50px;
 	border-radius: 50%;
 }
@@ -33,12 +41,29 @@ body{
 .item > span{
 	display: block;
 	top: 50%;
-	left: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
 	position: relative;
 	float: left;
+	margin-left: 30px;
+	width: 200px;
+	text-overflow: ellipsis;
+
+	/* Required for text-overflow to do anything */
+	white-space: nowrap;
+	overflow: hidden;
 
 }
 
 .item > i{
 	float: right;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	position: relative;
+	margin-right: 50px;
 }
