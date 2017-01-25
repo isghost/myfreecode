@@ -1,116 +1,111 @@
-//https://api.twitch.tv/kraken/channels/bobross?client_id=fjzhteomj28jkr8sghbnl9d8jjv5wd
-//https://api.twitch.tv/kraken/streams/bobross?client_id=fjzhteomj28jkr8sghbnl9d8jjv5wd
-var channels = ["bobross","freecodecamp", "kaypikefashion","c9sneaky","yasuotochallenger","tsm_dyrus","standy5229","meteos","failverde"];
-// var channels = ["bobross"];
-var magicPreifx = "nmjuy-";
-var curShowStatus = 1;
-function setChannelInfo(){
-	for(var i = 0; i < channels.length; i++){
-		var url = "https://api.twitch.tv/kraken/channels/" + channels[i] + "?client_id=fjzhteomj28jkr8sghbnl9d8jjv5wd";
-		$.ajax({
-			type: "GET",
-			crossDomain: true,
-			dataType: 'jsonp',
-			url: url,
-			jsonpCallback: 'callback' + channels[i],
-			success: function(msg){
-				var newItem = $(".item:first").clone().css("display","block").appendTo(".listview");
-				newItem.find("img").attr("src", msg.logo);
-				newItem.find("a").text(msg.display_name).attr("href",msg.url);
-				newItem.find(".status").text(msg.status);
-				newItem.addClass(magicPreifx + msg.name);
-				setOnlineStatus(msg.name);
-			},
-			error: function(msg){
-				console.log("服务器挂掉了");
-			}
+
+let lastValue = 0;
+let hasDot = false;
+let lastOperator = null;
+let needClear = false;
+$(document).ready(function(){
+	$("#ac").click(ACcb);
+	$("#ce").click(CEcb);
+	let op = ["+", "-", "*", "/", "%","="];
+	let opId = ["plus", "minus", "multi", "divide", "mod", "equal"];
+	for(let i = 0; i < opId.length;i++){
+		$("#" + opId[i]).click(function(){
+			operatorCb(op[i]);
 		});
 	}
+
+	let num = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
+	let numId = ["zero", "one","two", "three","four","five", "six","seven","eight","nine", "dot"];
+	for(let i = 0;i < numId.length;i++){
+		$("#" + numId[i]).click(function(){
+			clickNumCb(num[i]);
+		});
+	}
+});
+
+function ACcb(){
+	lastValue = 0;
+	hasDot = false;
+	lastOperator = null;
+	$(".showText").text("0");
 }
 
-function setOnlineStatus(name){
-	var url = "https://api.twitch.tv/kraken/streams/" + name + "?client_id=fjzhteomj28jkr8sghbnl9d8jjv5wd";
-	$.ajax({
-		type: "GET",
-		crossDomain: true,
-		dataType: 'jsonp',
-		url: url,
-		jsonpCallback: 'callback' + name,
-		success: function(msg){
-			if(msg.stream){
-				$("." + magicPreifx + name + " > i").attr("class","fa fa-caret-square-o-right fa-2x").css("color","green");
-			}
-		},
-		error: function(msg){
-			console.log("服务器挂掉了");
+function CEcb(){
+	$(".showText").text("0");
+}
+// index 10 为 .
+function clickNumCb(index){
+	if(needClear){
+		if(index == 10){
+			return ;
 		}
-	});
-}
-
-// @params status 需显示的状态，1表示任意，2在线，3离线
-function isStatifyStatus(item, status){
-	if(status == 1){
-		return true;
+		$(".showText").text("0");
 	}
-	else if(item.find(".fa-caret-square-o-right").length >= 1 && status === 2){
-		return true;
-	}
-	else if(item.find(".fa-caret-square-o-right").length == 0 && status === 3){
-		return true;
-	}
-	return false;
-}
-
-// @params name 搜索的名字
-function isStatifyName(item, name){
-	if(!name || name.length == 0){
-		return true;
-	}
-	var showName = item.find(".showName").text();
-	name = name.toLowerCase();
-	showName = showName.toLowerCase();
-	if(showName.match(name)){
-		return true;
-	}
-	else{
-		return false;
-	}
-}
-
-function setShowItem(status){
-	var searchName = $(".searchName").val();
-	curShowStatus = status || curShowStatus;
-	$(".item:gt(0)").each(function(index){
-		if(isStatifyStatus($(this), curShowStatus) && isStatifyName($(this), searchName)){
-			$(this).css("display", "block");
+	needClear = false;
+	if(index === 10){
+		if(hasDot){
+			return;
 		}
 		else{
-			$(this).css("display", "none");
+			hasDot = true;
+			index = ".";
 		}
-	});
+	}
+	let curValue = $(".showText").text();
+	if(curValue.length >= 10){ //最大长度设置为10
+		return ;
+	}
+	if(curValue.length == 1 && curValue[0] == "0" && index != "."){
+		$(".showText").text(index);
+	}
+	else{
+		$(".showText").text(curValue + index);
+	}
 }
 
-function setMenuListener(){
-	$(".allchannel").click(function(){
-		setShowItem(1);
-	});
-	$(".online").click(function(){
-		setShowItem(2);
-	});
-	$(".offline").click(function(){
-		setShowItem(3);
-	});
+function calc(a,b,op){
+	if(op == "*"){
+		return a * b;
+	}
+	else if(op == "+"){
+		return a + b;
+	}
+	else if(op == "-"){
+		return a - b;
+	}
+	else if(op == "/"){
+		return a / b;
+	}
+	else if(op == "%"){
+		return a % b;
+	}
+	return b;
 }
+function operatorCb(op){
+	if(needClear && lastOperator != "="){
+		lastOperator = op;
+		return ;
+	}
 
-function setSearch(){
-	$(".form-control").keyup(function(){
-		setShowItem();
-	});
+	if(lastOperator){
+		let curValue = $(".showText").text();
+		curValue = parseFloat(curValue);
+		if(curValue === 0 && (op == "/" || op == "%")){
+			return ;
+		}
+		lastValue = calc(lastValue, curValue, lastOperator);
+		lastValue = Math.floor(lastValue * 10000 + 0.5) / 10000;
+
+	}
+	else{
+		lastValue = parseFloat($(".showText").text());
+	}
+	if(op == "="){
+		lastOperator = null;
+	}
+	else{
+		lastOperator = op;
+	}
+	$(".showText").text(lastValue);
+	needClear = true;
 }
-
-
-$(document).ready(function(){
-	setChannelInfo();
-	setMenuListener();
-	setSearch();
-});
