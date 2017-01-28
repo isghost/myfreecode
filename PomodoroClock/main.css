@@ -1,0 +1,20 @@
+/* pink fe65b7
+	yellow e9c904
+	green 8fc33a
+	blue 62edd6
+	-----------
+	blue 6B7A8F
+	#F7882F
+	#F7C331
+	#DCC7AA
+*/
+
+body{
+	background-color: #DCC7AA;
+}
+
+.circle{
+	margin: auto;
+	display: block;
+	background-color: #BBB;
+}
