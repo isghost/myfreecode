@@ -1,3 +1,4 @@
+// svg  知识 https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths
 $(document).ready(function(){
 	setCircle(0.6);
 	let percent = 0;

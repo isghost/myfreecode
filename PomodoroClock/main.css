@@ -18,3 +18,75 @@ body{
 	display: block;
 	background-color: #BBB;
 }
+
+.container{
+	text-align: center;
+}
+
+.title{
+	font-size: 35px;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.setting{
+	display: inline-flex;
+}
+
+.break{
+	display: inline;
+	padding: 30px;
+	font-size: 25px;
+}
+
+.session{
+	display: inline;
+	padding: 30px;
+	font-size: 25px;
+}
+
+.minus, .add{
+	padding: 0 5px 0 5px;
+	background-color: #BBB;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px 0px;
+}
+
+.minus:hover, .add:hover{
+	box-shadow: 2px 2px 2px 0px;
+}
+
+.minus:active, .add:active{
+	box-shadow: 1px 1px 2px 0px inset;
+}
+
+.showTime{
+	position: relative;
+	top: 0px;
+}
+
+.circle{
+	top: 0px;
+}
+
+.status{
+	top: 100px;
+	font-size: 35px;
+	color: white;
+}
+
+.remainTime{
+	top: 200px;
+	font-size: 35px;
+	color: white;
+}
+
+.abscenter{
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+}
