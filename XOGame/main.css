@@ -1,0 +1,30 @@
+/* pink fe65b7
+	yellow e9c904
+	green 8fc33a
+	blue 62edd6
+	-----------
+	blue 6B7A8F
+	#F7882F
+	#F7C331
+	#DCC7AA
+*/
+
+body{
+	background-color: #DCC7AA;
+}
+
+.abscenter{
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+}
+
+.gamePanel{
+	margin: auto;
+	display: block;
+	background-color: #BBB;
+}
