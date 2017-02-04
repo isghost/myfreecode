@@ -7,6 +7,7 @@
 
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="http://libs.baidu.com/jqueryui/1.8.22/jquery-ui.min.js"></script>
+	<script src="http://cdn.bootcss.com/lodash.js/4.17.4/lodash.min.js"></script>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="main.js"></script>
 </head>
@@ -23,18 +24,23 @@
 			<div class="session">
 				<p class="desc">session length</p>
 				<span class="minus">-</span>
-				<span class="breakTime">5</span>
+				<span class="breakTime">25</span>
 				<span class="add">+</span>
 			</div>
 		</div>
-		<div class="showTime">
-			<svg class="circle abscenter" width="325px" height="325px" version="1.1" xmlns="http://www.w3.org/2000/svg">
-				<circle cx="162.5" cy="162.5" r="110" stroke="yellow" stroke-width="5" fill="transparent"/>
-				<path d="" fill="blue" id="bgCircle"/>
-			</svg>
-			<div class="status abscenter">break</div>
-			<div class="remainTime abscenter">20:00</div>
-		</div>
+			<div class="showTime">
+				<svg class="circle abscenter" width="325px" height="325px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="162.5" cy="162.5" r="110" stroke="yellow" stroke-width="5" fill="transparent"/>
+					<path d="" fill="blue" id="bgCircle"/>
+				</svg>
+				<div class="status abscenter">break</div>
+				<div class="remainTime abscenter">25:00</div>
+			</div>
+		<h1>使用方法</h1>
+		<ul>
+			<li>点击中间圆圈开始或者结束计时</li>
+			<li>倒计时开始后无法调整时间，需要先暂停</li>
+		</ul>
 	</div>
 </body>
 </html>

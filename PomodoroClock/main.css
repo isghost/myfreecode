@@ -11,6 +11,7 @@
 
 body{
 	background-color: #DCC7AA;
+
 }
 
 .circle{
@@ -21,6 +22,13 @@ body{
 
 .container{
 	text-align: center;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .title{
@@ -63,6 +71,7 @@ body{
 .showTime{
 	position: relative;
 	top: 0px;
+	height: 325px;
 }
 
 .circle{
@@ -89,4 +98,12 @@ body{
 	-o-transform: translateX(-50%);
 	transform: translateX(-50%);
 
+}
+
+ul{
+	width: 400px;
+	margin: auto;
+}
+li{
+	text-align: left;
 }
